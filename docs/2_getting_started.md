@@ -4,11 +4,13 @@ This guide will show you how to get started with GGS and create a setting menu w
 
 Use one of the following methods to install GGS:
 
-- Simply download the plugin from [Releases](https://github.com/PunchablePlushie/godot-game-settings/releases).
+- Simply download the latest release from [Releases](https://github.com/PunchablePlushie/godot-game-settings/releases).
 - Install the plugin via the [Godot Asset Library](https://godotengine.org/asset-library/asset) which is also available inside the editor.
 - Clone the repository with Git, or download the `main` branch directly with a third-party tool.
+- Add the repository as a [Git Submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
 
-> Note: The plugin may not work when first installed. Simply ignore the errors, enable the plugin. Make sure the singleton `GGS` is added to your "Globals/Autoload" (the plugin does this automatically when enabled).<br>
+> [!NOTE]
+> The plugin may not work when first installed. Simply ignore the errors, enable the plugin. Make sure the singleton `GGS` is added to your "Globals/Autoload" (the plugin does this automatically when enabled).<br>
 > If the singleton was not automatically added for any reason, you can manually add the following scene and name it "**GGS**". Make sure you add the scene, not the script.<br>
 > Singleton Path: `res://addons/ggs/plugin/singleton/ggs.tscn`
 
