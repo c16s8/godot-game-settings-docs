@@ -1,10 +1,10 @@
 GGS comes with the following predefined settings:
 
-| CATEGORY            | AVAILABLE SETTINGS                                             |
-| ------------------- | -------------------------------------------------------------- |
-| [Audio](#Audio)     | [Mute](##Mute) • [Volume](##Volume)                            |
-| [Display](#Display) | [Fullscreen](##Fullscreen) • [Scale](##Scale) • [Size](##Size) |
-| [Input](#Input)     |                                                                |
+| CATEGORY            | AVAILABLE SETTINGS                                          |
+| ------------------- | ----------------------------------------------------------- |
+| [Audio](#Audio)     | [Mute](#Mute) • [Volume](#Volume)                           |
+| [Display](#Display) | [Fullscreen](#Fullscreen) • [Scale](#Scale) • [Size](#Size) |
+| [Input](#Input)     |                                                             |
 
 ---
 
@@ -31,6 +31,8 @@ Changes the `volume` of the audio bus.
 | _value_type_ | `float`, range of _0_ – _100_ |
 | _default_    | `80.0`                        |
 | _bus_name_   | Target audio bus.             |
+
+<div align="right"><a href="#">Back to Top</a></div>
 
 ---
 
@@ -68,4 +70,29 @@ Sets the window size. The window will be resized by setting its size to provided
 | _default_    | `0`                                                                                                                               |
 | _sizes_      | List of available sizes. The order of items must be the same as the order of items in the component this setting will be used in. |
 
+<div align="right"><a href="#">Back to Top</a></div>
+
 # Input
+
+Sets the input event of a specific input action (i.e. rebinds an input). The `default` property is read-only and is set automatically whenever you choose an `action` or `event_idx`.
+
+| PROPERTY     | DESCRIPTION                                            |
+| ------------ | ------------------------------------------------------ |
+| _value_type_ | `Array`, [`event_type`, `event_id`, `auxiliary_value`] |
+| _default_    | `[]`, Read-Only                                        |
+| _action_     | The target action from the InputMap.                   |
+| _event_idx_  | The target event of member action.                     |
+
+### Type and ID
+
+Type refers to the input event type (e.g. `InputEventKey` or `InputEventJoypadMotion`). This is used to create the correct `InputEvent` when deserializing the saved value.
+
+ID refers to the property that stores what the actual input is. For each event type, it's as follows:
+
+- **InputEventKey**: `physical_keycode`
+- **InputEventMouseButton**: `button_index`
+- **InputEventJoypadButton**: `button_index`
+- **InputEventJoypadMotion**: `axis`, along with `axis_value` as auxiliary value.
+  rent_as_event`does not reflect what the actual`current` value is, simply re-inspect the setting.
+
+<div align="right"><a href="#">Back to Top</a></div>
