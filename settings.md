@@ -93,6 +93,5 @@ ID refers to the property that stores what the actual input is. For each event t
 - **InputEventMouseButton**: `button_index`
 - **InputEventJoypadButton**: `button_index`
 - **InputEventJoypadMotion**: `axis`, along with `axis_value` as auxiliary value.
-  rent_as_event`does not reflect what the actual`current` value is, simply re-inspect the setting.
 
 <div align="right"><a href="#">Back to Top</a></div>

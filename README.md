@@ -1,4 +1,5 @@
-# godot-game-settings-docs
+# Godot Game Settings Documentation
 
 The documentation for the Godot Game Settings, a plugin for Godot game engine.
-Version 3.2.
+
+For GGS v3.2.
