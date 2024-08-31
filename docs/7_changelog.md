@@ -9,3 +9,4 @@
 - Several code improvements, including using doc comments to generate documentation inside the editor.
 - Unique icons for components, making them easier to distinguish when making a setting menu.
 - Small improvements to the custom property inspectors.
+- New icon.
