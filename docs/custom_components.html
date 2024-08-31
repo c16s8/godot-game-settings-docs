@@ -1,0 +1,298 @@
+<!DOCTYPE HTML>
+<html lang="en" class="ayu" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Custom Components - Godot Game Settings - 3.2</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="home.html">Home</a></li><li class="chapter-item expanded "><a href="getting_started.html">Getting Started</a></li><li class="chapter-item expanded "><a href="settings.html">Settings</a></li><li class="chapter-item expanded "><a href="components.html">Components</a></li><li class="chapter-item expanded "><a href="custom_settings.html">Custom Settings</a></li><li class="chapter-item expanded "><a href="custom_components.html" class="active">Custom Components</a></li><li class="chapter-item expanded "><a href="changelog.html">Changelog</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Godot Game Settings - 3.2</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/PunchablePlushie/godot-game-settings-docs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>You can create your own custom components and use them just like the premade ones. Components use a property simply named <code>value</code> to keep track of the current setting value. For example, for a simple Toggle Button, this <code>value</code> can either be <code>true</code> or <code>false</code> and it corresponds to the button pressed state.</p>
+<p>When the user interacts with the component (in our example, toggles the button), the <code>value</code> is updated with the new value (in our example, the new pressed state). Then, if <code>apply_on_changed</code> is enabled, the setting is applied.</p>
+<h1 id="creating-the-component-files"><a class="header" href="#creating-the-component-files">Creating the Component Files</a></h1>
+<p>Components can be anywhere as they're simply scenes. Create a scene with an appropriate name. The scene root must be a <code>MarginContainer</code>. You can any controls you see fit to the scene.</p>
+<h1 id="adding-a-script"><a class="header" href="#adding-a-script">Adding a Script</a></h1>
+<p>Now, you can add a script to your root <code>MarginContainer</code> node. This script:</p>
+<ul>
+<li>Must be a <code>@tool</code> script. This is to allow them to send configuration warnings when the assigned setting may have an issue.</li>
+<li>Must extend <code>ggsComponent</code>.</li>
+<li>When overriding the following <code>reset_setting()</code>, you must first call the parent method using <code>super()</code>.</li>
+<li>When the user interacts with the component (such as toggling a button, changing a slider value, etc.), you should update the <code>value</code> property and call <code>apply_setting()</code> if <code>apply_on_changed</code> is <code>true</code>.</li>
+</ul>
+<pre><code class="language-gdscript">value = new_value
+if apply_on_changed:
+	apply_setting()
+</code></pre>
+<ul>
+<li>When overriding the <code>_ready()</code> method, you should define the <code>compatible_types</code> of the component. We don't want the nodes to run their setting-related code in the editor so use <code>Engine.is_editor_hint()</code> as a guard to prevent that.</li>
+</ul>
+<pre><code class="language-gdscript">compatible_types = [TYPE_BOOL, TYPE_INT]
+if Engine.is_editor_hint():
+  return
+</code></pre>
+<p>You should also get the current value of the setting in your <code>_ready()</code> and update the display elements to reflect the value. The method <code>GGS.get_value()</code> can be used to load the current value of the assigned setting from the save file. Simply pass the <code>setting</code> property (which holds a reference to the assigned <code>ggsSetting</code> resource) to it.</p>
+<pre><code class="language-gdscript">value = GGS.get_value(setting)
+# update visual stuff here
+</code></pre>
+<h1 id="class-methods"><a class="header" href="#class-methods">Class Methods</a></h1>
+<p>The following methods come from the base <code>ggsComponent</code> class and can be used or overridden when necessary. When overiding them, however, call them on the parent class with <code>super()</code>.</p>
+<h2 id="apply_setting"><a class="header" href="#apply_setting">apply_setting()</a></h2>
+<p>Saves the setting value to the save file and executes the setting logic. You don't generally need to override this, simply call it when you want the component to apply the setting. Always check for <code>apply_on_changed</code> before doing so.</p>
+<p>This method is also called when a relevant <a href="4_components/#Apply-Button">Apply Button</a> is pressed.</p>
+<h2 id="reset_setting"><a class="header" href="#reset_setting">reset_setting()</a></h2>
+<p>Resets the setting value back to its default and executes the setting logic. You should override this and update your component state in it.</p>
+<p>This method is called when a relevant <a href="4_components/#Reset-Button">Reset Button</a> is pressed.</p>
+<hr />
+<p>Here's a simple example of a toggle button component:</p>
+<pre><code class="language-gdscript">@tool
+extends ggsComponent
+
+@onready var _Btn: Button = $Btn
+
+
+func _ready() -&gt; void:
+	compatible_types = [TYPE_BOOL]
+	if Engine.is_editor_hint():
+		return
+
+	_init_value()
+	_Btn.toggled.connect(_on_Btn_toggled)
+
+
+func reset_setting() -&gt; void:
+	super()
+	_Btn.set_pressed_no_signal(setting_value)
+
+
+func _init_value() -&gt; void:
+	value = GGS.get_value
+	_Btn.set_pressed_no_signal(value)
+
+
+func _on_Btn_toggled(toggled_on: bool) -&gt; void:
+	value = toggled_on
+	if apply_on_changed:
+		apply_setting()
+
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="custom_settings.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="changelog.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="custom_settings.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="changelog.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

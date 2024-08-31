@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<html lang="en" class="ayu" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Getting Started - Godot Game Settings - 3.2</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="home.html">Home</a></li><li class="chapter-item expanded "><a href="getting_started.html" class="active">Getting Started</a></li><li class="chapter-item expanded "><a href="settings.html">Settings</a></li><li class="chapter-item expanded "><a href="components.html">Components</a></li><li class="chapter-item expanded "><a href="custom_settings.html">Custom Settings</a></li><li class="chapter-item expanded "><a href="custom_components.html">Custom Components</a></li><li class="chapter-item expanded "><a href="changelog.html">Changelog</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Godot Game Settings - 3.2</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/PunchablePlushie/godot-game-settings-docs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>This guide will show you how to get started with GGS and create a setting menu with all the predefined settings and components.</p>
+<h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
+<p>Use one of the following methods to install GGS:</p>
+<ul>
+<li>Simply download the latest release from <a href="https://github.com/PunchablePlushie/godot-game-settings/releases">Releases</a>.</li>
+<li>Install the plugin via the <a href="https://godotengine.org/asset-library/asset">Godot Asset Library</a> which is also available inside the editor.</li>
+<li>Clone the repository with Git, or download the <code>main</code> branch directly with a third-party tool.</li>
+<li>Add the repository as a <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">Git Submodule</a>.</li>
+</ul>
+<blockquote>
+<p>[!NOTE]
+The plugin may not work when first installed. Simply ignore the errors and enable the plugin. Make sure the singleton <code>GGS</code> is added to your "<strong>Globals/Autoload</strong>" (the plugin does this automatically when enabled).<br>
+If the singleton was not automatically added for any reason, you can manually add the following scene and name it "<strong>GGS</strong>". Make sure you add the scene, not the script.<br>
+Singleton Path: <code>res://addons/ggs/plugin/singleton/ggs.tscn</code></p>
+</blockquote>
+<h1 id="how-it-works"><a class="header" href="#how-it-works">How it Works</a></h1>
+<p>GGS uses custom resources along with premade scenes referred to as components to handle things. Each setting of your game is a special resource saved in a specific user-defined directory (<code>res://game_settings</code> by default). This directory (and other GGS preferences) can be found in the singleton scene (<code>ggs.tscn</code>).</p>
+<p>GGS uses the built-in <code>ConfigFile</code> class to save setting values in an INI-style file using their defined <code>section</code> and <code>key</code> properties. Additionally, it automatically cleans up the config file, removing any unused keys/sections and adding the missing ones. This file is saved in the user directory (<code>user://</code>) and is named <code>settings.cfg</code> by default. The name can be changed through preferences, however, the directory cannot and it'll always be the user directory.</p>
+<blockquote>
+<p>[!TIP]
+You can open the user directory from the <strong>Project</strong> menu &gt;&gt; <strong>Open User Data Folder</strong>.</p>
+</blockquote>
+<h1 id="creating-settings"><a class="header" href="#creating-settings">Creating Settings</a></h1>
+<p><code>ggsSetting</code> resources hold the logic and the default value for the setting. There are two ways to create a setting:</p>
+<blockquote>
+<p>[!NOTE]
+Remember that settings must be put in your settings directory to work. Also, you can nest settings in as many directories as
+you want. GGS will recursively load them.</p>
+</blockquote>
+<h2 id="creating-from-a-template"><a class="header" href="#creating-from-a-template">Creating from a Template</a></h2>
+<p>A template is a script that extends <code>ggsSetting</code> and has a unique <code>class_name</code>. GGS comes with a few premade templates for common game settings which can be found in <code>res://addons/ggs/templates</code>. In general, the class names start with <code>setting</code> (e.g. <code>settingAudioMute</code>, <code>settingInput</code>, etc.) This allows you to quickly find them by simply searching for "<em>setting</em>" when adding a resource.</p>
+<p>So, to create a setting from a template, simply open the create resource dialog, look for "<em>setting</em>", choose the template that you want, and give the resource an appropriate name.</p>
+<p>Now you can inspect the created resource to set any required properties. Regardless, almost all settings share three properties that need to be set:</p>
+<div class="table-wrapper"><table><thead><tr><th>PROPERTY</th><th>DESCRIPTION</th></tr></thead><tbody>
+<tr><td><em>section</em></td><td>The section name the key will be saved under.</td></tr>
+<tr><td><em>key</em></td><td>The key name the value will be saved in.</td></tr>
+<tr><td><em>default</em></td><td>The default value of the setting. This is used when reseting the setting or when creating its key in case the config file does not have it.</td></tr>
+</tbody></table>
+</div>
+<h2 id="creating-an-empty-setting"><a class="header" href="#creating-an-empty-setting">Creating an Empty Setting</a></h2>
+<p>You can create an empty setting by simply creating a <code>ggsSetting</code> resource (not choosing any template). After that, simply create a new <strong>tool</strong> script that extends <code>ggsSetting</code> and assign it to the created resources. For detailed information on creating your own custom settings, view <a href="5_custom_settings.html">Custom Settings</a>.</p>
+<h1 id="creating-your-settings-menu"><a class="header" href="#creating-your-settings-menu">Creating Your Settings Menu</a></h1>
+<p>Once you've added your settings, it's time to create your settings menu. GGS does not come with its own premade settings menu, rather it comes with several components that allow the user to interact with the setting and change its value. This gives developers flexibility so they can design a settings menu that fits their specific project.</p>
+<p>Components are premade scenes that can be instantiated into your own settings menu as many times as needed. Each component must have an assigned setting that it will keep track of. All components start with <code>component</code> to make searching for them easier.<br>
+To add a component to your scene, simply instantiate them like any regular scene (default hotkey: <code>Ctrl+Shift+A</code>).</p>
+<p>Once added, you can right click on the component and choose "<strong>Editable Children</strong>". This will allow you to edit the component children of like any regular node.</p>
+<p>Each component can only handle a specific type of data. An <strong>Arrow List</strong> for example, can only handle integers or booleans while a <strong>Slider</strong> can only handle floats or integers. So when assigning a setting to a components, make sure the type of the setting value is compatible with the component.</p>
+<p>Additionally, you can create your own custom components if needed. Visit <a href="6_custom_components.html">Custom Components</a> for more information. You can also find the premade components at <code>res://addons/ggs/components</code>.</p>
+<blockquote>
+<p>[!WARNING]
+GGS does not keep track of the assigned setting of the components. Meaning, that if you delete a setting that's assigned to a component, that component will still have the deleted setting assigned to it. Running the project in this case may result in unexpected behavior.</p>
+</blockquote>
+<h2 id="handling-sound-effects"><a class="header" href="#handling-sound-effects">Handling Sound Effects</a></h2>
+<p>GGS components allow you to play a sound effect when they gain focus or when they're interacted with. To assign audio files for these effects, open the singleton scene (<code>ggs.tscn</code>) and assign audio to the desired <code>AudioStreamPlayer</code> nodes. If no audio is assigned to a player, it will simply play no sound.</p>
+<h1 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h1>
+<p>That's the core part of what you need to know to use GGS. Other options or features are self-explanatory or have tooltips that you can read. Most classes also contain doc comments so you can look them up in Godot's built-in documentation feature (default hotkey: <code>F1</code>).</p>
+<p>You can also check <a href="3_settings.html">Settings</a> and <a href="4_components.html">Components</a> to view info regarding individual premade items.</p>
+<p>Feel free to open an issue if you need further assistance with the plugin, encounter a bug, or would like some additional features.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="home.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="settings.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="home.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="settings.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

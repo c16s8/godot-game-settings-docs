@@ -1,0 +1,20 @@
+[book]
+authors = ["PunchablePlushie"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Godot Game Settings - 3.2"
+
+[build]
+build-dir = "docs"
+
+[output.html]
+default-theme = "ayu"
+preferred-dark-theme = "ayu"
+no-section-label = true
+git-repository-url = "https://github.com/PunchablePlushie/godot-game-settings-docs"
+
+[output.html.fold]
+enable = true
+level = 1
+
