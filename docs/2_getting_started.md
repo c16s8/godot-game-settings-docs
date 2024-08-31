@@ -10,7 +10,7 @@ Use one of the following methods to install GGS:
 - Add the repository as a [Git Submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
 
 > [!NOTE]
-> The plugin may not work when first installed. Simply ignore the errors, enable the plugin. Make sure the singleton `GGS` is added to your "Globals/Autoload" (the plugin does this automatically when enabled).<br>
+> The plugin may not work when first installed. Simply ignore the errors and enable the plugin. Make sure the singleton `GGS` is added to your "**Globals/Autoload**" (the plugin does this automatically when enabled).<br>
 > If the singleton was not automatically added for any reason, you can manually add the following scene and name it "**GGS**". Make sure you add the scene, not the script.<br>
 > Singleton Path: `res://addons/ggs/plugin/singleton/ggs.tscn`
 
@@ -56,9 +56,9 @@ Once you've added your settings, it's time to create your settings menu. GGS doe
 Components are premade scenes that can be instantiated into your own settings menu as many times as needed. Each component must have an assigned setting that it will keep track of. All components start with `component` to make searching for them easier.<br>
 To add a component to your scene, simply instantiate them like any regular scene (default hotkey: `Ctrl+Shift+A`).
 
-Once added, you can right click on the component and choose "**Editable Children**". This will allow you to edit the properties of the component like any regular node.
+Once added, you can right click on the component and choose "**Editable Children**". This will allow you to edit the component children of like any regular node.
 
-Each component can only handle a specific type of data. An **Arrow List** for example, can only handle integers or booleans while a **Slider** can only handle floats or integers. So when assigning a setting to components, make sure the type of the setting value is compatible with the component.
+Each component can only handle a specific type of data. An **Arrow List** for example, can only handle integers or booleans while a **Slider** can only handle floats or integers. So when assigning a setting to a components, make sure the type of the setting value is compatible with the component.
 
 Additionally, you can create your own custom components if needed. Visit [Custom Components](6_custom_components.md) for more information. You can also find the premade components at `res://addons/ggs/components`.
 
@@ -67,7 +67,7 @@ Additionally, you can create your own custom components if needed. Visit [Custom
 
 ## Handling Sound Effects
 
-GGS components allow you to play a sound effect when they gain focus or when they're interacted with. To assign audio files for these effects, open the singleton scene (`ggs.tscn`) and assign audio to the desired `AudioStreamPlayer` node. If no audio is assigned to a player, it will simply play no sound.
+GGS components allow you to play a sound effect when they gain focus or when they're interacted with. To assign audio files for these effects, open the singleton scene (`ggs.tscn`) and assign audio to the desired `AudioStreamPlayer` nodes. If no audio is assigned to a player, it will simply play no sound.
 
 # Conclusion
 
