@@ -2,4 +2,7 @@
 
 The documentation for the Godot Game Settings, a plugin for Godot game engine.
 
-For GGS v3.2.
+Made with [mdBook](https://github.com/rust-lang/mdBook), along with the following third-party plugins:
+
+- [mdbook-admonish](https://github.com/tommilligan/mdbook-admonish)
+- [mdbook-pagetoc](https://github.com/slowsage/mdbook-pagetoc)

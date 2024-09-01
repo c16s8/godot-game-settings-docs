@@ -1,9 +1,11 @@
 <!DOCTYPE HTML>
+<!-- Changes: Just removes the prev/next chapter buttons. Everything else is the same as mdBook default. -->
+
 <html lang="en" class="ayu" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Godot Game Settings - 3.2</title>
+        <title>Godot Game Settings</title>
         <meta name="robots" content="noindex">
 
 
@@ -30,6 +32,8 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./theme/mdbook-admonish.css">
+        <link rel="stylesheet" href="theme/pagetoc.css">
 
     </head>
     <body class="sidebar-visible no-js">
@@ -142,7 +146,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">Godot Game Settings - 3.2</h1>
+                    <h1 class="menu-title">Godot Game Settings</h1>
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -181,6 +185,17 @@
 <p>You can find all the information you need to use GGS 3.2 in here. If this is your first time using GGS, consider starting with <a href="2_getting_started.html">Getting Started</a>.</p>
 <p>View <a href="3_settings.html">Settings</a> or <a href="4_components.html">Components</a> if you have a question about a specific predefined setting or component.</p>
 <p>Finally, visit <a href="7_troubleshoot.html">Troubleshoot</a> if there's a general issue with the plugin (such as error messages). GGS 3.2 also has in-engine documentation. You can access it like any Godot documentation (<code>F1</code> by default).</p>
+<div id="admonition-note" class="admonition admonish-note" role="note" aria-labelledby="admonition-note-title">
+<div class="admonition-title">
+<div id="admonition-note-title">
+<p>Note</p>
+</div>
+<a class="admonition-anchor-link" href="home.html#admonition-note"></a>
+</div>
+<div>
+<p>dsadsa</p>
+</div>
+</div>
 <div style="break-before: page; page-break-before: always;"></div><p>This guide will show you how to get started with GGS and create a setting menu with all the predefined settings and components.</p>
 <h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
 <p>Use one of the following methods to install GGS:</p>
@@ -475,9 +490,10 @@ func _on_Btn_toggled(toggled_on: bool) -&gt; void:
                 </div>
             </div>
 
-            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            <!-- Disables prev/next chapter buttons ->
+            <!-- <nav class="nav-wide-wrapper" aria-label="Page navigation">
 
-            </nav>
+            </nav>-->
 
         </div>
 
@@ -498,6 +514,7 @@ func _on_Btn_toggled(toggled_on: bool) -&gt; void:
         <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
+        <script src="theme/pagetoc.js"></script>
 
         <script>
         window.addEventListener('load', function() {

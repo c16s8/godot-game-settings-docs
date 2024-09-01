@@ -1,46 +1,66 @@
 <!DOCTYPE HTML>
-<!-- Changes: Just removes the prev/next chapter buttons. Everything else is the same as mdBook default. -->
+<!-- Just the prev/next chapter buttons are removed. Everything else is the same as mdBook default. -->
 
-<html lang="en" class="ayu" dir="ltr">
+<html lang="{{ language }}" class="{{ default_theme }}" dir="{{ text_direction }}">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Custom Components - Godot Game Settings</title>
+        <title>{{ title }}</title>
+        {{#if is_print }}
+        <meta name="robots" content="noindex">
+        {{/if}}
+        {{#if base_url}}
+        <base href="{{ base_url }}">
+        {{/if}}
 
 
         <!-- Custom HTML head -->
-        
-        <meta name="description" content="">
+        {{> head}}
+
+        <meta name="description" content="{{ description }}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        {{#if favicon_svg}}
+        <link rel="icon" href="{{ path_to_root }}favicon.svg">
+        {{/if}}
+        {{#if favicon_png}}
+        <link rel="shortcut icon" href="{{ path_to_root }}favicon.png">
+        {{/if}}
+        <link rel="stylesheet" href="{{ path_to_root }}css/variables.css">
+        <link rel="stylesheet" href="{{ path_to_root }}css/general.css">
+        <link rel="stylesheet" href="{{ path_to_root }}css/chrome.css">
+        {{#if print_enable}}
+        <link rel="stylesheet" href="{{ path_to_root }}css/print.css" media="print">
+        {{/if}}
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="{{ path_to_root }}FontAwesome/css/font-awesome.css">
+        {{#if copy_fonts}}
+        <link rel="stylesheet" href="{{ path_to_root }}fonts/fonts.css">
+        {{/if}}
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="{{ path_to_root }}highlight.css">
+        <link rel="stylesheet" href="{{ path_to_root }}tomorrow-night.css">
+        <link rel="stylesheet" href="{{ path_to_root }}ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="./theme/mdbook-admonish.css">
-        <link rel="stylesheet" href="theme/pagetoc.css">
+        {{#each additional_css}}
+        <link rel="stylesheet" href="{{ ../path_to_root }}{{ this }}">
+        {{/each}}
 
+        {{#if mathjax_support}}
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        {{/if}}
     </head>
     <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
-            var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "ayu";
+            var path_to_root = "{{ path_to_root }}";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "{{ preferred_dark_theme }}" : "{{ default_theme }}";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -65,7 +85,7 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('ayu')
+            html.classList.remove('{{ default_theme }}')
             html.classList.add(theme);
             var body = document.querySelector('body');
             body.classList.remove('no-js')
@@ -92,7 +112,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="home.html">Home</a></li><li class="chapter-item expanded "><a href="getting_started.html">Getting Started</a></li><li class="chapter-item expanded "><a href="settings.html">Settings</a></li><li class="chapter-item expanded "><a href="components.html">Components</a></li><li class="chapter-item expanded "><a href="custom_settings.html">Custom Settings</a></li><li class="chapter-item expanded "><a href="custom_components.html" class="active">Custom Components</a></li><li class="chapter-item expanded "><a href="changelog.html">Changelog</a></li></ol>
+                {{#toc}}{{/toc}}
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -124,7 +144,8 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                {{> header}}
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -140,24 +161,36 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
+                        {{#if search_enabled}}
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
+                        {{/if}}
                     </div>
 
-                    <h1 class="menu-title">Godot Game Settings</h1>
+                    <h1 class="menu-title">{{ book_title }}</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        {{#if print_enable}}
+                        <a href="{{ path_to_root }}print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        <a href="https://github.com/PunchablePlushie/godot-game-settings-docs" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                        {{/if}}
+                        {{#if git_repository_url}}
+                        <a href="{{git_repository_url}}" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa {{git_repository_icon}}"></i>
                         </a>
+                        {{/if}}
+                        {{#if git_repository_edit_url}}
+                        <a href="{{git_repository_edit_url}}" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                        {{/if}}
 
                     </div>
                 </div>
 
+                {{#if search_enabled}}
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
                         <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
@@ -168,6 +201,7 @@
                         </ul>
                     </div>
                 </div>
+                {{/if}}
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
@@ -180,86 +214,22 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>You can create your own custom components and use them just like the premade ones. Components use a property simply named <code>value</code> to keep track of the current setting value. For example, for a simple Toggle Button, this <code>value</code> can either be <code>true</code> or <code>false</code> and it corresponds to the button pressed state.</p>
-<p>When the user interacts with the component (in our example, toggles the button), the <code>value</code> is updated with the new value (in our example, the new pressed state). Then, if <code>apply_on_changed</code> is enabled, the setting is applied.</p>
-<h1 id="creating-the-component-files"><a class="header" href="#creating-the-component-files">Creating the Component Files</a></h1>
-<p>Components can be anywhere as they're simply scenes. Create a scene with an appropriate name. The scene root must be a <code>MarginContainer</code>. You can any controls you see fit to the scene.</p>
-<h1 id="adding-a-script"><a class="header" href="#adding-a-script">Adding a Script</a></h1>
-<p>Now, you can add a script to your root <code>MarginContainer</code> node. This script:</p>
-<ul>
-<li>Must be a <code>@tool</code> script. This is to allow them to send configuration warnings when the assigned setting may have an issue.</li>
-<li>Must extend <code>ggsComponent</code>.</li>
-<li>When overriding the following <code>reset_setting()</code>, you must first call the parent method using <code>super()</code>.</li>
-<li>When the user interacts with the component (such as toggling a button, changing a slider value, etc.), you should update the <code>value</code> property and call <code>apply_setting()</code> if <code>apply_on_changed</code> is <code>true</code>.</li>
-</ul>
-<pre><code class="language-gdscript">value = new_value
-if apply_on_changed:
-	apply_setting()
-</code></pre>
-<ul>
-<li>When overriding the <code>_ready()</code> method, you should define the <code>compatible_types</code> of the component. We don't want the nodes to run their setting-related code in the editor so use <code>Engine.is_editor_hint()</code> as a guard to prevent that.</li>
-</ul>
-<pre><code class="language-gdscript">compatible_types = [TYPE_BOOL, TYPE_INT]
-if Engine.is_editor_hint():
-  return
-</code></pre>
-<p>You should also get the current value of the setting in your <code>_ready()</code> and update the display elements to reflect the value. The method <code>GGS.get_value()</code> can be used to load the current value of the assigned setting from the save file. Simply pass the <code>setting</code> property (which holds a reference to the assigned <code>ggsSetting</code> resource) to it.</p>
-<pre><code class="language-gdscript">value = GGS.get_value(setting)
-# update visual stuff here
-</code></pre>
-<h1 id="class-methods"><a class="header" href="#class-methods">Class Methods</a></h1>
-<p>The following methods come from the base <code>ggsComponent</code> class and can be used or overridden when necessary. When overiding them, however, call them on the parent class with <code>super()</code>.</p>
-<h2 id="apply_setting"><a class="header" href="#apply_setting">apply_setting()</a></h2>
-<p>Saves the setting value to the save file and executes the setting logic. You don't generally need to override this, simply call it when you want the component to apply the setting. Always check for <code>apply_on_changed</code> before doing so.</p>
-<p>This method is also called when a relevant <a href="4_components/#Apply-Button">Apply Button</a> is pressed.</p>
-<h2 id="reset_setting"><a class="header" href="#reset_setting">reset_setting()</a></h2>
-<p>Resets the setting value back to its default and executes the setting logic. You should override this and update your component state in it.</p>
-<p>This method is called when a relevant <a href="4_components/#Reset-Button">Reset Button</a> is pressed.</p>
-<hr />
-<p>Here's a simple example of a toggle button component:</p>
-<pre><code class="language-gdscript">@tool
-extends ggsComponent
-
-@onready var _Btn: Button = $Btn
-
-
-func _ready() -&gt; void:
-	compatible_types = [TYPE_BOOL]
-	if Engine.is_editor_hint():
-		return
-
-	_init_value()
-	_Btn.toggled.connect(_on_Btn_toggled)
-
-
-func reset_setting() -&gt; void:
-	super()
-	_Btn.set_pressed_no_signal(setting_value)
-
-
-func _init_value() -&gt; void:
-	value = GGS.get_value
-	_Btn.set_pressed_no_signal(value)
-
-
-func _on_Btn_toggled(toggled_on: bool) -&gt; void:
-	value = toggled_on
-	if apply_on_changed:
-		apply_setting()
-
-</code></pre>
-
+                        {{{ content }}}
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="custom_settings.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        {{#previous}}
+                            <a rel="prev" href="{{ path_to_root }}{{link}}" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
+                        {{/previous}}
 
-                            <a rel="next prefetch" href="changelog.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        {{#next}}
+                            <a rel="next prefetch" href="{{ path_to_root }}{{link}}" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+                        {{/next}}
 
                         <div style="clear: both"></div>
                     </nav>
@@ -268,36 +238,111 @@ func _on_Btn_toggled(toggled_on: bool) -&gt; void:
 
             <!-- Disables prev/next chapter buttons ->
             <!-- <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="custom_settings.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                {{#previous}}
+                    <a rel="prev" href="{{ path_to_root }}{{link}}" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
+                {{/previous}}
 
-                    <a rel="next prefetch" href="changelog.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                {{#next}}
+                    <a rel="next prefetch" href="{{ path_to_root }}{{link}}" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
+                {{/next}}
             </nav>-->
 
         </div>
 
+        {{#if live_reload_endpoint}}
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "{{{live_reload_endpoint}}}";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
 
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        {{/if}}
 
+        {{#if google_analytics}}
+        <!-- Google Analytics Tag -->
+        <script>
+            var localAddrs = ["localhost", "127.0.0.1", ""];
 
+            // make sure we don't activate google analytics if the developer is
+            // inspecting the book locally...
+            if (localAddrs.indexOf(document.location.hostname) === -1) {
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', '{{google_analytics}}', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+        {{/if}}
+
+        {{#if playground_line_numbers}}
+        <script>
+            window.playground_line_numbers = true;
+        </script>
+        {{/if}}
+
+        {{#if playground_copyable}}
         <script>
             window.playground_copyable = true;
         </script>
+        {{/if}}
 
+        {{#if playground_js}}
+        <script src="{{ path_to_root }}ace.js"></script>
+        <script src="{{ path_to_root }}editor.js"></script>
+        <script src="{{ path_to_root }}mode-rust.js"></script>
+        <script src="{{ path_to_root }}theme-dawn.js"></script>
+        <script src="{{ path_to_root }}theme-tomorrow_night.js"></script>
+        {{/if}}
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        {{#if search_js}}
+        <script src="{{ path_to_root }}elasticlunr.min.js"></script>
+        <script src="{{ path_to_root }}mark.min.js"></script>
+        <script src="{{ path_to_root }}searcher.js"></script>
+        {{/if}}
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="{{ path_to_root }}clipboard.min.js"></script>
+        <script src="{{ path_to_root }}highlight.js"></script>
+        <script src="{{ path_to_root }}book.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="theme/pagetoc.js"></script>
+        {{#each additional_js}}
+        <script src="{{ ../path_to_root }}{{this}}"></script>
+        {{/each}}
 
+        {{#if is_print}}
+        {{#if mathjax_support}}
+        <script>
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+        {{else}}
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        {{/if}}
+        {{/if}}
 
     </div>
     </body>
