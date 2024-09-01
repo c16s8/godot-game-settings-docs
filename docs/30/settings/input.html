@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<!-- The prev/next chapter and print buttons are removed. -->
+
+<html lang="en" class="ayu" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Input - Godot Game Settings Docs</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../.././theme/mdbook-admonish.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../../home.html">Home</a></li><li class="chapter-item "><a href="../../getting_started.html">Getting Started</a></li><li class="chapter-item "><a href="../../settings.html">Settings</a></li><li class="chapter-item "><a href="../../components.html">Components</a></li><li class="chapter-item "><a href="../../custom_settings.html">Custom Settings</a></li><li class="chapter-item "><a href="../../custom_components.html">Custom Components</a></li><li class="chapter-item "><a href="../../changelog.html">Changelog</a></li><li class="chapter-item affix "><li class="part-title">Older Versions</li><li class="chapter-item expanded "><a href="../../30/home.html">3.0</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../30/getting_started.html">Getting Started</a></li><li class="chapter-item "><a href="../../30/custom_settings.html">Custom Setting</a></li><li class="chapter-item "><a href="../../30/custom_components.html">Custom Components</a></li><li class="chapter-item "><a href="../../30/troubleshoot.html">Troubleshoot</a></li><li class="chapter-item "><a href="../../30/release_notes.html">Release Notes</a></li><li class="chapter-item expanded "><div>Reference</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../30/settings/settings.html">Settings</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../30/settings/audio_mute.html">Audio Mute</a></li><li class="chapter-item "><a href="../../30/settings/audio_volume.html">Audio Volume</a></li><li class="chapter-item "><a href="../../30/settings/display_fullscreen.html">Display Fullscreen</a></li><li class="chapter-item "><a href="../../30/settings/display_scale.html">Display Scale</a></li><li class="chapter-item "><a href="../../30/settings/display_size.html">Display Size</a></li><li class="chapter-item expanded "><a href="../../30/settings/input.html" class="active">Input</a></li></ol></li><li class="chapter-item "><a href="../../30/components/components.html">Components</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../30/components/apply_button.html">Apply Button</a></li><li class="chapter-item "><a href="../../30/components/arrow_list.html">Arrow List</a></li><li class="chapter-item "><a href="../../30/components/binary_selection.html">Binary Selection</a></li><li class="chapter-item "><a href="../../30/components/input_button.html">Input Button</a></li><li class="chapter-item "><a href="../../30/components/input_confirm_window.html">Input Confirm Window</a></li><li class="chapter-item "><a href="../../30/components/option_list.html">Option List</a></li><li class="chapter-item "><a href="../../30/components/radio_list.html">Radio List</a></li><li class="chapter-item "><a href="../../30/components/reset_button.html">Reset Button</a></li><li class="chapter-item "><a href="../../30/components/slider.html">Slider</a></li><li class="chapter-item "><a href="../../30/components/spinbox.html">Spinbox</a></li><li class="chapter-item "><a href="../../30/components/text_field.html">Text Field</a></li></ol></li></ol></li></ol></li><li class="chapter-item "><a href="../../31/home.html">3.1</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../31/getting_started.html">Getting Started</a></li><li class="chapter-item "><a href="../../31/custom_settings.html">Custom Setting</a></li><li class="chapter-item "><a href="../../31/custom_components.html">Custom Components</a></li><li class="chapter-item "><a href="../../31/troubleshoot.html">Troubleshoot</a></li><li class="chapter-item "><a href="../../31/release_notes.html">Release Notes</a></li><li class="chapter-item "><div>Reference</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../31/settings/settings.html">Settings</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../31/settings/audio_mute.html">Audio Mute</a></li><li class="chapter-item "><a href="../../31/settings/audio_volume.html">Audio Volume</a></li><li class="chapter-item "><a href="../../31/settings/display_fullscreen.html">Display Fullscreen</a></li><li class="chapter-item "><a href="../../31/settings/display_scale.html">Display Scale</a></li><li class="chapter-item "><a href="../../31/settings/display_size.html">Display Size</a></li><li class="chapter-item "><a href="../../31/settings/input.html">Input</a></li></ol></li><li class="chapter-item "><a href="../../31/components/components.html">Components</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../31/components/apply_button.html">Apply Button</a></li><li class="chapter-item "><a href="../../31/components/arrow_list.html">Arrow List</a></li><li class="chapter-item "><a href="../../31/components/binary_selection.html">Binary Selection</a></li><li class="chapter-item "><a href="../../31/components/input_button.html">Input Button</a></li><li class="chapter-item "><a href="../../31/components/input_confirm_window.html">Input Confirm Window</a></li><li class="chapter-item "><a href="../../31/components/option_list.html">Option List</a></li><li class="chapter-item "><a href="../../31/components/radio_list.html">Radio List</a></li><li class="chapter-item "><a href="../../31/components/reset_button.html">Reset Button</a></li><li class="chapter-item "><a href="../../31/components/slider.html">Slider</a></li><li class="chapter-item "><a href="../../31/components/spinbox.html">Spinbox</a></li><li class="chapter-item "><a href="../../31/components/text_field.html">Text Field</a></li></ol></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Godot Game Settings Docs</h1>
+
+                    <div class="right-buttons">
+                        <!-- 
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        -->
+                        <a href="https://github.com/PunchablePlushie/godot-game-settings-docs" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>Changes keyboard/mouse or gamepad event of a specific input action (i.e. rebinds an input).</p>
+<h2 id="properties"><a class="header" href="#properties">Properties</a></h2>
+<ul>
+<li>default/current - <em>String</em> : Must be an input keyword.</li>
+<li>action - <em>String</em> : The name of the target action in the input map.</li>
+<li>type - <em>int (enum)</em> : The type of input this setting is for.</li>
+</ul>
+<h2 id="input-keywords"><a class="header" href="#input-keywords">Input Keywords</a></h2>
+<p>Input keywords are strings that correspond to a certain input. GGS converts this string into an actual <code>InputEvent</code> using the <code>ggsInputHelper</code> class. All keywords must be lowercase.</p>
+<h3 id="keyboard"><a class="header" href="#keyboard">Keyboard</a></h3>
+<p>Keyboard keywords are pretty self-explanatory. For example, <code>d</code> corresponds to the <strong>D</strong> key on the keyboard (<code>KEY_D</code> in Godot). <code>escape</code> corresponds to the <strong>Esc</strong> key on the keyboard (<code>KEY_ESCAPE</code> in Godot).</p>
+<h3 id="mouse"><a class="header" href="#mouse">Mouse</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Button</th><th>Keyword</th><th>Wheel</th><th>Keyword</th></tr></thead><tbody>
+<tr><td>Left Click</td><td>lmb</td><td>Wheel Up</td><td>mw_up</td></tr>
+<tr><td>Right Click</td><td>rmb</td><td>Wheel Down</td><td>mw_down</td></tr>
+<tr><td>Middle Click</td><td>mmb</td><td>Wheel Left</td><td>mw_left</td></tr>
+<tr><td>Misc 1</td><td>mb1</td><td>Wheel Right</td><td>mw_right</td></tr>
+<tr><td>Misc 2</td><td>mb2</td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<h3 id="modifiers"><a class="header" href="#modifiers">Modifiers</a></h3>
+<p>Keyboard and mouse inputs can accept modifiers. To add a modifier, write a modifier keyword before the main keyword followed by a comma. Do <strong>not</strong> add a space after the comma.</p>
+<p>Examples: <code>shift,d</code>, <code>ctrl,alt,rmb</code>, <code>alt,f4</code></p>
+<div class="table-wrapper"><table><thead><tr><th>Modifier</th><th>Keyword</th></tr></thead><tbody>
+<tr><td>Shift</td><td>shift</td></tr>
+<tr><td>Control</td><td>ctrl</td></tr>
+<tr><td>Alt</td><td>alt</td></tr>
+</tbody></table>
+</div>
+<h3 id="gamepad"><a class="header" href="#gamepad">Gamepad</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Button</th><th>Keyword</th><th>Button</th><th>Keyword</th><th>Button</th><th>Keyword</th><th>Button</th><th>Keyword</th><th>Button</th><th>Keyword</th><th>Button</th><th>Keyword</th></tr></thead><tbody>
+<tr><td>Bottom Button</td><td>bbot</td><td>DPad Right</td><td>dright</td><td>Left Stick</td><td>left_stick</td><td>Back</td><td>back</td><td>Paddle 1</td><td>pad1</td><td>Touch</td><td>touch</td></tr>
+<tr><td>Right Button</td><td>bright</td><td>DPad Left</td><td>dleft</td><td>Right Stick</td><td>right_stick</td><td>Guide</td><td>guide</td><td>Paddle 2</td><td>pad2</td><td></td><td></td></tr>
+<tr><td>Top Button</td><td>btop</td><td>DPad Up</td><td>dup</td><td>Left Shoulder</td><td>left_shoulder</td><td>Start</td><td>start</td><td>Paddle 3</td><td>pad3</td><td></td><td></td></tr>
+<tr><td>Left Button</td><td>bleft</td><td>DPad Down</td><td>ddown</td><td>Right Shoulder</td><td>right_shoulder</td><td>Misc</td><td>misc</td><td>Paddle 4</td><td>pad4</td><td></td><td></td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>Left Stick</th><th>Keyword</th><th>Right Stick</th><th>Keyword</th><th>Triggers</th><th>Keyword</th></tr></thead><tbody>
+<tr><td>Left</td><td>ls_left</td><td>Left</td><td>rs_left</td><td>Left</td><td>left_trigger</td></tr>
+<tr><td>Right</td><td>ls_right</td><td>Right</td><td>rs_right</td><td>Right</td><td>right_trigger</td></tr>
+<tr><td>Up</td><td>ls_up</td><td>Up</td><td>rs_up</td><td></td><td></td></tr>
+<tr><td>Down</td><td>ls_down</td><td>Down</td><td>rs_down</td><td></td><td></td></tr>
+</tbody></table>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../30/settings/display_size.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../30/components/components.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Disables prev/next chapter buttons ->
+            <!-- <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../30/settings/display_size.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../30/components/components.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>-->
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../theme/pagetoc.js"></script>
+
+
+    </div>
+    </body>
+</html>
