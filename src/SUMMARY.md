@@ -1,5 +1,7 @@
 # Summary
 
+# Latest
+
 - [Home](./32/home.md)
 - [Getting Started](./32/getting_started.md)
 - [Custom Setting](./32/custom_settings.md)
@@ -25,6 +27,8 @@
     - [Slider](./32/components/slider.md)
     - [Spinbox](./32/components/spinbox.md)
     - [Text Field](./32/components/text_field.md)
+
+---
 
 # Older Versions
 

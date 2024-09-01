@@ -60,6 +60,8 @@ You can open your project's user directory from **Project → Open User Data Fol
 
 ```admonish tip
 You can access GGS preferences by opening the singleton scene (`ggs.tscn`) and inspecting the root **GGS** node.
+
+Restart the plugin (disable/enable the singleton) after changing `save_file` or `settings_dir`.
 ```
 
 # Creating a Setting
@@ -104,9 +106,9 @@ Only the setting resources created from a template show up in the **Quick Load**
 
 Now let's give the button a text. The root of all GGS components is a `MarginContainer`. To access the underlying nodes (the `CheckButton` in this case), you should enable **Editable Children**. Right-click on the component, and check the **Editable Children** option. Now you can select the **Btn** node and change any of its properties you see fit. So go ahead and choose an appropriate text for it.
 
-Now let's try running the scene (you can run the current scene with **F6**). Interact with the component during run time and you may notice something is wrong. Nothing is happening when you interact with it. Stop the game and inspect the component in the scene tree again. Notice the `apply_on_changed` property. When set to `true`, the component will apply the associated setting immediately. Otherwise, you'll have to use another component called an **Apply Button** to apply the settings.
+Now let's try running the scene (you can run the current scene with **F6**). Interact with the component during run time and you may notice that something is wrong. Nothing is happening when you interact with it. Stop the game and inspect the component in the scene tree again. Notice the `apply_on_changed` property. When set to `true`, the component will apply the associated setting immediately. Otherwise, you'll have to use another component called an [Apply Button](./components/apply_button.md) to apply the settings.
 
-So go ahead and set `apply_on_changed` to true. Rerun the scene and change the setting.
+So go ahead and set `apply_on_changed` to true. Rerun the scene and change the setting. If everything has been done properly, the game window should successfully toggle between fullscreen and windowed states.
 
 # Handling Sound Effects
 

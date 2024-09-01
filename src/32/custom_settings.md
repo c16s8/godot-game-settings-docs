@@ -1,37 +1,60 @@
-You can create your own custom settings and templates in GGS.
+GGS allows you to create your own custom setting templates and regular settings.
 
-# Creating a Custom Setting
+# Creating a Regular Setting
 
-Simply create a new GDScript. The script must:
+A "regular" setting here refers to a setting that will not be used as a template. Something that only needs once instance. To create a new regular setting, first, create an empty resource (simply choose the root **Resource** option in the new resource window).
+
+Now, create a new GDScript somewhere suitable in your project (preferably in your settings directory). This script is where you put the logic of your setting. There are a few things you should take into consideration. The script must:
 
 - Be a tool script (`@tool` at the top of the script).
-- The script must extend `ggsSetting`.
-- Must have a method named `apply()` that has a single parameter. This is the value of the setting.
-- If you plan to use it as a template for multiple settings, should have a class name (`class_name` keyword).
-- If you plan to use it as a template, it's also recommended to set `value_type` and `default` in the script's `_init()`.
+- Extend the `ggsSetting` class.
+- Have a method named `apply()` that takes a single argument. This is the value of the setting and will be passed to `apply()` whenever the setting needs to applied to the game.
 
-Once you're done, you can assign this script to the setting resource of your choice.
+This is the bare minimum you need to do. Now you can code the logic of your setting in the `apply()` method.
 
-# Value Properties
+There are several optional things you can do:
 
-All settings have three value properties: `value_type`, `value_hint`, and `value_hint_string`.
+## Custom Init
 
-`value_type` is necessary to determine the type of value the setting has. The other can be optionally used to customize the way the `default` property is exported to the Godot inspector.
+You can override the `_init()` method to set several useful properties. These properties include:
 
-For example, if your `value_type` is `float`, you can set `value_hint` to be `Range`. And set `value_hint_string` to be `0,100`. This will export `default` as a range between `0` and `100`. For more information, view `_get_property_list()` and `Property.Hint` constants in the Godot docs.
+| PROPERTY             | DESCRIPTION                                                                          |
+| -------------------- | ------------------------------------------------------------------------------------ |
+| default              | The initial `default` value of the setting.                                          |
+| section              | The initial `section` value of the setting.                                          |
+| key                  | The initial `key` value of the setting.                                              |
+| read_only_properties | Any property name inside this array will be read-only when the setting is inspected. You may need to reassign the script to the resource for changes to take effect. |
 
-# The Setting Logic
+## Setting Logic
 
-To write the logic for your setting, open the script. The `apply()` method is where your logic should go. Note that it must take a value (the same type defined in `value_type`).
+As mentioned before, the logic, what actually happens when the setting changes, goes in `apply()`. The `apply()` method must take exactly one argument and that is the new value of the setting. Note that the type of value `apply()` accepts should be the same type defined by `value_type`.
+
+Remember that you can define methods or set additional properties like any script. As long as your script meets the three aforementioned conditions, it's a valid setting script.
+
+Once you've finish your script, you can assign it to the empty resource that you created it previously.
+
+# Creating a Template
+
+Creating a template is exactly the same as creating a regular setting, except this time you give it a `class_name`. This allows it to be instantiated directly from the resource window, similar to the prebuilt templates that already come with GGS.
+
+As a convention, consider starting the class name with **"setting"** so it can be searched for easier.
+
+# Customizing `default` Export
+
+You can use the `value_*` properties to customize how the `default` property is exported to the inspector. This uses Godot's `_get_property_list()`. Note that while you can easily set these inside the editor as well, you may want to set them in the `_init()`, especially if your script is a template.
+
+- `value_type`: The **Variant.Type** of the value (i.e. `bool`, `String`, `Array`, etc.).
+- `value_hint`: The `PropertyHint` for the value. This can be used to customize how the property is exported. For example, if the `value_type` is `float` or `int`, you can set the hint to **Range** (which is `PROPERTY_HINT_RANGE`). This will export the `default` property as a range. All of this is done by Godot itself. View `_get_property_list()` for more information on custom exports.
+- `value_hint_string`: Used in tandem with `value_hint`. Provides information for some property hints. For example, if `value_hint` is **Range**, hint string can be used to set the range: `0,100`.
+
+~~~admonish example
+Here's how a simple VSync setting would look like:
 
 ---
-
-Here's a simple example of a VSync setting:
 
 ```gdscript
 @tool
 extends ggsSetting
-
 
 func apply(value: bool) -> void:
 	var vsync_mode: DisplayServer.VSyncMode
@@ -44,4 +67,7 @@ func apply(value: bool) -> void:
 	DisplayServer.window_set_vsync_mode(vsync_mode)
 ```
 
-You can also check the premade template scripts to see how they're defined.
+---
+
+If we wanted to turn this into a template, the class name would be something similar to `settingDisplayVSync`.
+~~~
