@@ -8,4 +8,4 @@ You're currently viewing documentation of GGS `3.2`, the latest version of the p
 
 If this is your first time using GGS, consider starting with [Getting Started](getting_started.md).
 
-A reference of how the code works is also available from the navigation menu.
+View [Settings](settings.md) and [Components](components.md) to see how to work with individual prebuilt things that come with GGS.

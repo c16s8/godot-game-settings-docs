@@ -1,20 +1,14 @@
-GGS comes with the following predefined settings:
-
-| CATEGORY            | AVAILABLE SETTINGS                                          |
-| ------------------- | ----------------------------------------------------------- |
-| [Audio](#Audio)     | [Mute](#Mute) • [Volume](#Volume)                           |
-| [Display](#Display) | [Fullscreen](#Fullscreen) • [Scale](#Scale) • [Size](#Size) |
-| [Input](#Input)     |                                                             |
+GGS comes with a set of common settings that are used in almost all games.
 
 ---
 
 # Audio
 
-The following allow you to change the common properties of a certain audio bus. The settings automatically detects available audio buses for easy selection.
+The following allow you to change the common properties of a certain audio bus. It automatically detects available audio buses for easy selection.
 
 ## Mute
 
-Changes the `muted` state of the audio bus.
+Changes the `muted` state of the selected audio bus.
 
 | PROPERTY     | DESCRIPTION       |
 | ------------ | ----------------- |
@@ -24,15 +18,13 @@ Changes the `muted` state of the audio bus.
 
 ## Volume
 
-Changes the `volume` of the audio bus.
+Changes the `volume` of the selected audio bus.
 
 | PROPERTY     | DESCRIPTION                   |
 | ------------ | ----------------------------- |
 | _value_type_ | `float`, range of _0_ – _100_ |
 | _default_    | `80.0`                        |
 | _bus_name_   | Target audio bus.             |
-
-<div align="right"><a href="#">Back to Top</a></div>
 
 ---
 
@@ -54,23 +46,23 @@ Toggles Fullscreen mode.
 
 Sets the window scale. The window will be resized by multiplying its dimensions by a flat number.
 
-| PROPERTY     | DESCRIPTION                                                                                                                        |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| _value_type_ | `int`, index of an item from `scales`                                                                                              |
-| _default_    | `0`                                                                                                                                |
-| _scales_     | List of available scales. The order of items must be the same as the order of items in the component this setting will be used in. |
+| PROPERTY     | DESCRIPTION                                                                                                                            |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| _value_type_ | `int`, index of an item from `scales`                                                                                                  |
+| _default_    | `0`                                                                                                                                    |
+| _scales_     | List of available scales. The order of items must be the same as the order of items in the component this setting will be assigned to. |
 
 ## Size
 
 Sets the window size. The window will be resized by setting its size to provided values.
 
-| PROPERTY     | DESCRIPTION                                                                                                                       |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------- |
-| _value_type_ | `int`, index of an item from `sizes`                                                                                              |
-| _default_    | `0`                                                                                                                               |
-| _sizes_      | List of available sizes. The order of items must be the same as the order of items in the component this setting will be used in. |
+| PROPERTY     | DESCRIPTION                                                                                                                           |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| _value_type_ | `int`, index of an item from `sizes`                                                                                                  |
+| _default_    | `0`                                                                                                                                   |
+| _sizes_      | List of available sizes. The order of items must be the same as the order of items in the component this setting will be assigned to. |
 
-<div align="right"><a href="#">Back to Top</a></div>
+---
 
 # Input
 
@@ -81,7 +73,7 @@ Sets the input event of a specific input action (i.e. rebinds an input). The `de
 | _value_type_ | `Array`, [`event_type`, `event_id`, `auxiliary_value`] |
 | _default_    | `[]`, Read-Only                                        |
 | _action_     | The target action from the InputMap.                   |
-| _event_idx_  | The target event of member action.                     |
+| _event_idx_  | The target event from the selected action.             |
 
 ### Type and ID
 
@@ -93,5 +85,3 @@ ID refers to the property that stores what the actual input is. For each event t
 - **InputEventMouseButton**: `button_index`
 - **InputEventJoypadButton**: `button_index`
 - **InputEventJoypadMotion**: `axis`, along with `axis_value` as auxiliary value.
-
-<div align="right"><a href="#">Back to Top</a></div>
