@@ -1,5 +1,7 @@
 # Summary
 
+- [Docs Home](./home.md)
+
 # Latest
 
 - [Home](./32/home.md)
