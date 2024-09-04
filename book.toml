@@ -16,6 +16,7 @@ no-section-label = true
 git-repository-url = "https://github.com/PunchablePlushie/godot-game-settings-docs"
 additional-css = ["./theme/mdbook-admonish.css", "theme/pagetoc.css"]
 additional-js  = ["theme/pagetoc.js"]
+site-url = "https://punchableplushie.github.io/godot-game-settings-docs/"
 
 [output.html.fold]
 enable = true
