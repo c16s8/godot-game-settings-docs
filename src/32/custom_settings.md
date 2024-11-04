@@ -2,7 +2,7 @@ GGS allows you to create your own custom setting templates and regular settings.
 
 # Creating a Regular Setting
 
-A "regular" setting here refers to a setting that will not be used as a template. Something that only needs once instance. To create a new regular setting, first, create an empty resource (simply choose the root **Resource** option in the new resource window).
+A "regular" setting refers to a setting that will not be used as a template. Something that only needs one instance. To create a new regular setting, first, create an empty resource (simply choose the root **Resource** option in the new resource window).
 
 Now, create a new GDScript somewhere suitable in your project (preferably in your settings directory). This script is where you put the logic of your setting. There are a few things you should take into consideration. The script must:
 
