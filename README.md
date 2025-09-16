@@ -1,6 +1,6 @@
 # Godot Game Settings Documentation
 
-The **old and deprecated version of the documentation** for the [Godot Game Settings](https://github.com/c16s8/godot-game-settings), a plugin for Godot game engine.
+The old version of the documentation for the [Godot Game Settings](https://github.com/c16s8/godot-game-settings), a plugin for Godot game engine. You can view the documentation of GGS 3.2 and before in the `src` directory.
 
 Made with [mdBook](https://github.com/rust-lang/mdBook), along with the following third-party plugins:
 
