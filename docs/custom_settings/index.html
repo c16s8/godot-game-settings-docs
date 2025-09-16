@@ -8,26 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://c16s8.github.io/godot-game-settings-docs/">
+        <link rel="canonical" href="https://c16s8.github.io/godot-game-settings-docs/custom_settings/">
       
       
+        <link rel="prev" href="../getting_started/">
       
-        <link rel="next" href="getting_started/">
+      
+        <link rel="next" href="../custom_components/">
       
       
-      <link rel="icon" href="img/favicon.png">
+      <link rel="icon" href="../img/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
-        <title>Godot Game Settings</title>
+        <title>Custom Settings - Godot Game Settings</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -71,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#creating-a-setting-script" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,9 +90,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Godot Game Settings" class="md-header__button md-logo" aria-label="Godot Game Settings" data-md-component="logo">
+    <a href=".." title="Godot Game Settings" class="md-header__button md-logo" aria-label="Godot Game Settings" data-md-component="logo">
       
-  <img src="img/favicon.png" alt="logo">
+  <img src="../img/favicon.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -102,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Custom Settings
             
           </span>
         </div>
@@ -220,9 +227,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Godot Game Settings" class="md-nav__button md-logo" aria-label="Godot Game Settings" data-md-component="logo">
+    <a href=".." title="Godot Game Settings" class="md-nav__button md-logo" aria-label="Godot Game Settings" data-md-component="logo">
       
-  <img src="img/favicon.png" alt="logo">
+  <img src="../img/favicon.png" alt="logo">
 
     </a>
     Godot Game Settings
@@ -246,17 +253,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -267,7 +267,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -279,7 +278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting_started/" class="md-nav__link">
+      <a href="../getting_started/" class="md-nav__link">
         
   
   
@@ -298,10 +297,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="custom_settings/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Custom Settings
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -312,6 +331,51 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-setting-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a Setting Script
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customizing-default-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customizing Default Export
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Logic
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -323,7 +387,7 @@
   
   
     <li class="md-nav__item">
-      <a href="custom_components/" class="md-nav__link">
+      <a href="../custom_components/" class="md-nav__link">
         
   
   
@@ -345,7 +409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="settings/" class="md-nav__link">
+      <a href="../settings/" class="md-nav__link">
         
   
   
@@ -367,7 +431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="components/" class="md-nav__link">
+      <a href="../components/" class="md-nav__link">
         
   
   
@@ -400,6 +464,41 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-setting-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a Setting Script
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customizing-default-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customizing Default Export
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Logic
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -417,13 +516,53 @@
   
 
 
-  <h1>Home</h1>
+  <h1>Custom Settings</h1>
 
-<p>Welcome to the Godot Game Settings documentation. If you're using GGS for the first time, start at <a href="getting_started/">Getting Started</a>.</p>
-<p>View <a href="settings/">Settings</a> and <a href="components/">Components</a> for information about the pre-built settings and components that come with GGS.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To view the documentation for previous versions (3.2 and before) view the github repository. You can access the documentation repo using the "Github" button at the top-right of the page.</p>
+<p>You are not limited to the settings that come with the plugin as GGS allows you to create your own custom settings.</p>
+<h2 id="creating-a-setting-script">Creating a Setting Script<a class="headerlink" href="#creating-a-setting-script" title="Permanent link">&para;</a></h2>
+<p>The setting script is where you can define your setting properties and its logic. The script must fulfil certain requirements, including:</p>
+<ul>
+<li>It must be a tool script (put <code>@tool</code> at the top of the script).</li>
+<li>It must extend the <code>GGSSetting</code> class.</li>
+<li>It is recommended to have a class name, and be prefixed with "Setting" (e.g. <code>class_name SettingFoobar</code>).</li>
+<li>It must override <code>_init()</code> and set the <code>type</code> and <code>default</code> properties. The <code>default</code> property is the default value of the setting, and <code>type</code> is its type (corresponding to an engine type such as <code>TYPE_INT</code> or <code>TYPE_FLOAT</code>).</li>
+<li>Have a method named <code>apply()</code> that takes a single argument. Whenever the setting needs to be applied, this method is called and the new setting value is passed to it.</li>
+</ul>
+<h2 id="customizing-default-export">Customizing Default Export<a class="headerlink" href="#customizing-default-export" title="Permanent link">&para;</a></h2>
+<p>As mentioned, you must define <code>default</code> and <code>type</code> properties of the setting in <code>_init()</code>. You can also override other properties that may be useful depending on the type of setting you're making. These properties include:</p>
+<table>
+<thead>
+<tr>
+<th>PROPERTY</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hint</td>
+<td>The property hint for <code>default</code>. Use this to customize how the property is exported in the editor.</td>
+</tr>
+<tr>
+<td>hint_string</td>
+<td>The hint string for the property hint. Always used alongside specific <code>hint</code> values.</td>
+</tr>
+<tr>
+<td>section</td>
+<td>The sectio name used to save and load the setting from the disc.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="adding-logic">Adding Logic<a class="headerlink" href="#adding-logic" title="Permanent link">&para;</a></h2>
+<p>The logic, or in other words, what actually happens when the setting needs to be applied, goes in the <code>apply()</code> method. Note that the type of value <code>apply()</code> accepts should be the same type defined in <code>type</code>.</p>
+<p>Remember that you can define methods or set additional properties like any script. As long as your script fulfils the aforementioned requirements, it's a valid setting script.</p>
+<p>Once you've finish your script, you can create a new instance of it via the new resource window.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For more information about how to use <code>hint</code> and <code>hint_string</code>, check <a href="https://docs.godotengine.org/en/latest/classes/class_object.html#class-object-private-method-get-property-list"><code>_get_property_list()</code> on the Godot documentation</a>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can check the prebuilt settings that come with GGS for practical examples of a setting script. They're located at <code>res://ggs/scripts</code> by default</p>
 </div>
 
 
@@ -481,10 +620,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.instant.progress", "navigation.top", "search.suggest", "content.code.copy"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.top", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.56ea9cef.min.js"></script>
+      <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
     
   </body>

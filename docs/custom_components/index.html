@@ -8,26 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://c16s8.github.io/godot-game-settings-docs/">
+        <link rel="canonical" href="https://c16s8.github.io/godot-game-settings-docs/custom_components/">
       
       
+        <link rel="prev" href="../custom_settings/">
       
-        <link rel="next" href="getting_started/">
+      
+        <link rel="next" href="../settings/">
       
       
-      <link rel="icon" href="img/favicon.png">
+      <link rel="icon" href="../img/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
-        <title>Godot Game Settings</title>
+        <title>Custom Components - Godot Game Settings</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -71,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#creating-the-component-scene" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,9 +90,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Godot Game Settings" class="md-header__button md-logo" aria-label="Godot Game Settings" data-md-component="logo">
+    <a href=".." title="Godot Game Settings" class="md-header__button md-logo" aria-label="Godot Game Settings" data-md-component="logo">
       
-  <img src="img/favicon.png" alt="logo">
+  <img src="../img/favicon.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -102,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Custom Components
             
           </span>
         </div>
@@ -220,9 +227,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Godot Game Settings" class="md-nav__button md-logo" aria-label="Godot Game Settings" data-md-component="logo">
+    <a href=".." title="Godot Game Settings" class="md-nav__button md-logo" aria-label="Godot Game Settings" data-md-component="logo">
       
-  <img src="img/favicon.png" alt="logo">
+  <img src="../img/favicon.png" alt="logo">
 
     </a>
     Godot Game Settings
@@ -246,17 +253,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -267,7 +267,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -279,7 +278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting_started/" class="md-nav__link">
+      <a href="../getting_started/" class="md-nav__link">
         
   
   
@@ -301,7 +300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="custom_settings/" class="md-nav__link">
+      <a href="../custom_settings/" class="md-nav__link">
         
   
   
@@ -320,10 +319,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="custom_components/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Custom Components
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -334,6 +353,75 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-component-scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating the Component Scene
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-the-main-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding the Main Script
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Class Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apply_setting" class="md-nav__link">
+    <span class="md-ellipsis">
+      apply_setting()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset_setting" class="md-nav__link">
+    <span class="md-ellipsis">
+      reset_setting()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -345,7 +433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="settings/" class="md-nav__link">
+      <a href="../settings/" class="md-nav__link">
         
   
   
@@ -367,7 +455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="components/" class="md-nav__link">
+      <a href="../components/" class="md-nav__link">
         
   
   
@@ -400,6 +488,65 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-component-scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating the Component Scene
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-the-main-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding the Main Script
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Class Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apply_setting" class="md-nav__link">
+    <span class="md-ellipsis">
+      apply_setting()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset_setting" class="md-nav__link">
+    <span class="md-ellipsis">
+      reset_setting()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -417,13 +564,39 @@
   
 
 
-  <h1>Home</h1>
+  <h1>Custom Components</h1>
 
-<p>Welcome to the Godot Game Settings documentation. If you're using GGS for the first time, start at <a href="getting_started/">Getting Started</a>.</p>
-<p>View <a href="settings/">Settings</a> and <a href="components/">Components</a> for information about the pre-built settings and components that come with GGS.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To view the documentation for previous versions (3.2 and before) view the github repository. You can access the documentation repo using the "Github" button at the top-right of the page.</p>
+<p>You can create your own custom components and use them just like the premade ones. Components use a property simply called <code>value</code> to keep track of the current setting value. For example, in a simple Toggle Button, this <code>value</code> can either be <code>true</code> or <code>false</code> and it corresponds to the toggle state of the button.</p>
+<p>When the user interacts with the component (in this example, toggles the button), the <code>value</code> is updated. Then, if apply on changed is enabled, the setting is applied.</p>
+<h2 id="creating-the-component-scene">Creating the Component Scene<a class="headerlink" href="#creating-the-component-scene" title="Permanent link">&para;</a></h2>
+<p>Components can be stored anywhere as they're just scenes that are instantied. All default components that come with GGS are located at <code>res://ggs/components</code>. It is recommended to keep your own components in this directory as well.</p>
+<p>To begin, create a new scene. You can add any control nodes you need to this scene, however the root node must be a <code>MarginContainer</code>.</p>
+<h2 id="adding-the-main-script">Adding the Main Script<a class="headerlink" href="#adding-the-main-script" title="Permanent link">&para;</a></h2>
+<p>The main script should be assigned to the root <code>MarginContainer</code> node and it must fulfil the following requirements:</p>
+<ul>
+<li>It must be a <code>@tool</code> script. This allows the component to send configuration warnings.</li>
+<li>It must extend <code>GGSComponent</code>.</li>
+<li>When the user interacts with the component (such as toggling a button, changing a slider value, etc.), it should update the <code>value</code> property and call <code>apply_setting()</code> if apply on changed is enabled. Use <code>can_apply_on_changed()</code> to do the check.</li>
+<li>When overriding <code>reset_setting()</code>, you must first call the parent method using <code>super()</code>.</li>
+<li>When overriding <code>_ready()</code>, you must define <code>compatible_types</code> of the component.</li>
+<li>To prevent the nodes from running their setting-related code in the editor, use <code>Engine.is_editor_hint()</code> as a guard clause.</li>
+</ul>
+<div class="language-gdscript highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">compatible_types</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">TYPE_BOOL</span><span class="p">,</span><span class="w"> </span><span class="n">TYPE_INT</span><span class="p">]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">if</span><span class="w"> </span><span class="n">Engine</span><span class="o">.</span><span class="n">is_editor_hint</span><span class="p">():</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="k">return</span>
+</span></code></pre></div>
+<p>After the above guard clause, you should get the current value of the setting in <code>_ready()</code>. To load setting values from disc, use <code>GGSSaveManager.load_setting_value()</code>. Don't forget to update the display elements of the component as well so it actually shows the current value of the setting.</p>
+<h2 id="class-methods">Class Methods<a class="headerlink" href="#class-methods" title="Permanent link">&para;</a></h2>
+<p>The following methods come from the base <code>GGSComponent</code> class and can be used or overridden when necessary. When overiding them, you must also call the parent method using <code>super()</code>.</p>
+<h3 id="apply_setting">apply_setting()<a class="headerlink" href="#apply_setting" title="Permanent link">&para;</a></h3>
+<p>Saves the setting value to the save file and executes the setting logic. You don't generally need to override this, simply call it when you want the component to apply the setting. Always check if apply on changed is enabled before doing so. You can use <code>can_apply_on_changed()</code> method to do the check.</p>
+<p>This method is also called when a relevant <a href="../components/#apply-button">Apply Button</a> is pressed.</p>
+<h3 id="reset_setting">reset_setting()<a class="headerlink" href="#reset_setting" title="Permanent link">&para;</a></h3>
+<p>Resets the setting value back to its default and executes the setting logic. You should override this and update your component state in it.</p>
+<p>This method is called when a relevant <a href="../components/#reset-button">Reset Button</a> is pressed.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can check the script for prebuilt components that come with GGS for some examples.</p>
 </div>
 
 
@@ -481,10 +654,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.instant.progress", "navigation.top", "search.suggest", "content.code.copy"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.top", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.56ea9cef.min.js"></script>
+      <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
     
   </body>

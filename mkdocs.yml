@@ -1,0 +1,54 @@
+site_name: Godot Game Settings
+site_url: https://c16s8.github.io/godot-game-settings-docs/
+repo_url: https://github.com/c16s8/godot-game-settings-docs
+docs_dir: src
+
+nav:
+  - Home: index.md
+  - Getting Started: getting_started.md
+  - Custom Settings: custom_settings.md
+  - Custom Components: custom_components.md
+  - Settings: settings.md
+  - Components: components.md
+
+theme:
+  name: material
+  logo: img/favicon.png
+  favicon: img/favicon.png
+  font:
+    code: Jetbrains Mono
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.top
+    - search.suggest
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - toc:
+      permalink: true
